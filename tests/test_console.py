@@ -29,7 +29,7 @@ class TestHBNBCommand(unittest.TestCase):
         """Testing the 'create' command of the console - the error messages"""
         try:
             os.remove('file.json')
-        except:
+        except Exception as e:
             pass
         cmd = HBNBCommand()
 

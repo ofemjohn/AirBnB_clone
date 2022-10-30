@@ -151,7 +151,7 @@ class HBNBCommand(cmd.Cmd):
         key = "{}.{}".format(class_name, id_number)
         try:
             print(objects[key])
-        except:
+        except Exception as e:
             print(HBNBCommand.ERROR_ID_NOT_FOUND)
 
     def do_destroy(self, arg):
@@ -175,7 +175,7 @@ class HBNBCommand(cmd.Cmd):
         try:
             del objects[key]
             storage.save()
-        except:
+        except Exception as e:
             print(HBNBCommand.ERROR_ID_NOT_FOUND)
 
     def do_all(self, arg):
@@ -214,7 +214,7 @@ class HBNBCommand(cmd.Cmd):
             objects = storage.all()
             key = "{}.{}".format(class_name, id_number)
             obj = objects[key]
-        except:
+        except Exception as e:
             print(HBNBCommand.ERROR_ID_NOT_FOUND)
             return
 
@@ -226,7 +226,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             try:
                 attr_value = float(attr_value)
-            except:
+            except Exception as e:
                 pass
 
         setattr(obj, attribute, attr_value)
@@ -253,6 +253,7 @@ class HBNBCommand(cmd.Cmd):
 
         class_list = storage.filter_by_class(class_name)
         print(len(class_list))
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

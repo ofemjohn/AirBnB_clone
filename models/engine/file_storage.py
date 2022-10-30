@@ -35,7 +35,6 @@ class FileStorage:
                 new_dict[key] = value.to_dict()
             json.dump(new_dict, f)
 
-
     def reload(self):
         """
         deserializes the JSON file to __objects
