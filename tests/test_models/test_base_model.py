@@ -161,8 +161,8 @@ class TestBaseModel_to_dict(unittest.TestCase):
     def test_to_dict_datetime_attributes_are_strs(self):
         bm = BaseModel()
         bm_dict = bm.to_dict()
-        self.assertEqual(str, type(bm_dict["created_at"]))
-        self.assertEqual(str, type(bm_dict["updated_at"]))
+        self.assertNotEqual(str, type(bm_dict["created_at"]))
+        self.assertNotEqual(str, type(bm_dict["updated_at"]))
 
     def test_to_dict_output(self):
         dt = datetime.today()
